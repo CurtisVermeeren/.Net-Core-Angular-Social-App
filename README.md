@@ -1,1 +1,1 @@
-.Net-Core-Angular-Social-App
+SocialApp
