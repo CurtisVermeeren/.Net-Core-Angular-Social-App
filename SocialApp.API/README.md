@@ -17,3 +17,5 @@ Use the command `type .\SECRETS.TEMPLATE.json | dotnet user-secrets set` to set 
 Users seeded using json-generator.com and in the `Data/UserSeedData.json` file.
 
 Uncomment `seeder.SeedUsers();` in the `Congfigure` method of `Startup.cs` to seed the database with fake users. 
+
+Can login with username: penny and password: paswword
