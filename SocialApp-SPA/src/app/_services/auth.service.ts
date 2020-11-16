@@ -42,8 +42,8 @@ export class AuthService {
     }
 
     // register creates a new user on the api server
-    register(model: any) {
-        return this.http.post(this.baseUrl + 'register', model);
+    register(user: User) {
+        return this.http.post(this.baseUrl + 'register', user);
     }
 
     // If the token is not expired the user is logged in

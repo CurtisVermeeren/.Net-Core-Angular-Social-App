@@ -38,15 +38,13 @@ namespace SocialApp.API.Controllers
                 return BadRequest("Username already exists");
             }
 
-            var userToCreate = new User
-            {
-                Username = userForRegisterDto.Username
-            };
+            var userToCreate = this.mapper.Map<User>(userForRegisterDto);
 
             var createdUser = await repo.Register(userToCreate, userForRegisterDto.Password);
 
-            // TODO return CreatedAtRoute 
-            return StatusCode(201);
+            var userToReturn = this.mapper.Map<UserForDetailedDto>(createdUser);
+
+            return CreatedAtRoute("GetUser", new {controller="Users", id=createdUser.Id}, userToReturn);
         }
 
         [HttpPost("login")]
@@ -78,7 +76,7 @@ namespace SocialApp.API.Controllers
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            var user = mapper.Map<UserForListDto>(userFromRepo);
+            var user = this.mapper.Map<UserForListDto>(userFromRepo);
 
             return Ok(new
             {
