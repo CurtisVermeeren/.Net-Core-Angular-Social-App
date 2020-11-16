@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SocialApp.API.Data;
 using SocialApp.API.Dtos;
+using SocialApp.API.Helpers;
 
 namespace SocialApp.API.Controllers
 {
+    [ServiceFilter(typeof(LogUserActivity))]
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
@@ -56,9 +58,6 @@ namespace SocialApp.API.Controllers
             }
 
             throw new Exception($"Updating user {id} failed on save");
-
-
-
         }
 
     }
