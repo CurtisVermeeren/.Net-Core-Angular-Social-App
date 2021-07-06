@@ -17,7 +17,7 @@ Or use `dotnet user-secrets set "key" "value"` to add a secret to the dotnet use
 
 Use the command `type .\SECRETS.TEMPLATE.json | dotnet user-secrets set` to set the secrets from the template file to add multiple secrets at once.
 
-## Other
+## Seeding Users
 Users seeded using json-generator.com and in the `Data/UserSeedData.json` file.
 
 Uncomment `seeder.SeedUsers();` in the `Congfigure` method of `Startup.cs` to seed the database with fake users. 
@@ -25,5 +25,16 @@ Uncomment `seeder.SeedUsers();` in the `Congfigure` method of `Startup.cs` to se
 Can login with username: penny and password: password
 
 ## APIs
-Uses Cloudinary for image storage. 
+Uses Cloudinary for image storage. An account is needed to run this application.
 
+## Database
+
+Application uses SQLLite for a database. This is called `SocialApp.db` in the project directory.
+
+Recreate the database structure in `SQL Studio` using the `SCHEMA.sql` in the project directory.
+
+See the `Seeding Users` section for information about seeding extra users. 
+
+## Running the application
+
+Once application setup is done above run the application using `dotnet run`
