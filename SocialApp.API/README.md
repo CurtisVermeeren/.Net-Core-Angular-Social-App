@@ -17,12 +17,14 @@ Or use `dotnet user-secrets set "key" "value"` to add a secret to the dotnet use
 
 Use the command `type .\SECRETS.TEMPLATE.json | dotnet user-secrets set` to set the secrets from the template file to add multiple secrets at once.
   
-The order of precedence for secrets in .Net is as follows:
+The order of precedence from first to last loaded for secrets in .Net Core is as follows:
   - appsettings.json
   - appsettings.{env.EnvironmentName}.json file
   - The Local User secrets file
   - Environment Variables
   - Command Line Arguments
+  
+Items that are loaded LAST will overwrite previous settings. This means command line arguments will overwrite anything before it. 
 
 ## Seeding Users
 Users can be seeded to add fake profiles for development. 
