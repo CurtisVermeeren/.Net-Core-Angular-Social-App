@@ -3,4 +3,6 @@ This project is an example social network application built using .Net Core for 
 
 The backend is built using `.Net Core 2.1` and the front end is built using `Angular 6`
 
+## Project setup
+
 The API and SPA folders both contain more detailed readme files for usage and deployment.
